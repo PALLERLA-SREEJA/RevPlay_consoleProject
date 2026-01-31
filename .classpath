@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="C:/Users/sreeja pallerla/Downloads/ojdbc14.jar.zip"/>
+	<classpathentry kind="lib" path="C:/Users/sreeja pallerla/Downloads/ojdbc6.jar.zip"/>
+	<classpathentry kind="lib" path="C:/Users/sreeja pallerla/Downloads/mockito-core-1.10.19.jar.zip"/>
+	<classpathentry kind="lib" path="C:/Users/sreeja pallerla/Downloads/objenesis-2.1.jar.zip"/>
+	<classpathentry kind="lib" path="C:/Users/sreeja pallerla/Downloads/slf4j-api-1.7.36.jar.zip"/>
+	<classpathentry kind="lib" path="C:/Users/sreeja pallerla/Downloads/slf4j-reload4j-1.7.36.jar.zip"/>
+	<classpathentry kind="lib" path="C:/Users/sreeja pallerla/Downloads/reload4j-1.2.22.jar.zip"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
