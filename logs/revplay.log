@@ -375,3 +375,184 @@
 2026-01-31 11:36:30 INFO  com.revplay.service.UserService - Login successful for user: karthik
 2026-01-31 12:35:55 INFO  com.revplay.service.UserService - Registration attempt for username: sreeja, email: sreeja15@gmail.com
 2026-01-31 12:35:55 WARN  com.revplay.service.UserService - Registration failed for user: sreeja
+2026-01-31 13:39:59 INFO  com.revplay.service.UserService - Registration attempt for username: sreeja, email: sreeja15@gmail.com
+2026-01-31 13:40:00 WARN  com.revplay.service.UserService - Registration failed for user: sreeja
+2026-01-31 13:40:42 INFO  com.revplay.service.UserService - Login attempt for input: sreeja
+2026-01-31 13:40:42 INFO  com.revplay.service.UserService - Login successful for user: sreeja
+2026-01-31 18:27:24 INFO  com.revplay.service.UserService - Registration attempt for username: sreeja, email: sreeja15@gmail.com
+2026-01-31 18:27:25 WARN  com.revplay.service.UserService - Registration failed for user: sreeja
+2026-01-31 18:27:59 INFO  com.revplay.service.UserService - Login attempt for input: sreeja
+2026-01-31 18:27:59 INFO  com.revplay.service.UserService - Login successful for user: sreeja
+2026-01-31 18:28:30 INFO  com.revplay.service.ArtistService - Updating artist profile for userId: 3
+2026-01-31 18:28:53 INFO  com.revplay.service.AlbumService - Creating album 'varsham' for artistId: 3
+2026-01-31 18:28:53 INFO  com.revplay.service.AlbumService - Album created successfully: varsham
+2026-01-31 18:29:50 INFO  com.revplay.service.SongService - Uploading song: kopama napaina by artistId: 3
+2026-01-31 18:29:50 INFO  com.revplay.service.SongService - Song uploaded successfully: kopama napaina
+2026-01-31 18:33:01 INFO  com.revplay.service.SongService - Updating songId: 1
+2026-01-31 18:33:01 INFO  com.revplay.service.SongService - Song updated successfully: 1
+2026-01-31 18:43:36 INFO  com.revplay.service.UserService - Login attempt for input: sreeja
+2026-01-31 18:43:36 INFO  com.revplay.service.UserService - Login successful for user: sreeja
+2026-01-31 18:44:13 INFO  com.revplay.service.ArtistService - Updating artist profile for userId: 3
+2026-01-31 18:48:33 WARN  com.revplay.service.SongService - Deleting songId: 7
+2026-01-31 18:48:48 WARN  com.revplay.service.AlbumService - Deleting albumId: 4
+2026-01-31 18:49:29 WARN  com.revplay.service.SongService - Deleting songId: 4
+2026-01-31 18:49:38 WARN  com.revplay.service.SongService - Deleting songId: 3
+2026-01-31 18:53:06 WARN  com.revplay.service.SongService - Deleting songId: 2
+2026-01-31 18:53:42 WARN  com.revplay.service.SongService - Deleting songId: 4
+2026-01-31 18:54:50 INFO  com.revplay.service.UserService - Login attempt for input: sreeja
+2026-01-31 18:54:50 WARN  com.revplay.service.UserService - Login failed for input: sreeja
+2026-01-31 18:55:09 INFO  com.revplay.service.UserService - Login attempt for input: sreeja
+2026-01-31 18:55:09 WARN  com.revplay.service.UserService - Login failed for input: sreeja
+2026-01-31 18:56:08 INFO  com.revplay.service.UserService - Login attempt for input: sreeja15@gmail.com
+2026-01-31 18:56:08 WARN  com.revplay.service.UserService - Login failed for input: sreeja15@gmail.com
+2026-01-31 18:57:20 INFO  com.revplay.service.UserService - Registration attempt for username: sreeja, email: sreeja15@gmail.com
+2026-01-31 18:57:20 WARN  com.revplay.service.UserService - Registration failed for user: sreeja
+2026-01-31 18:58:26 INFO  com.revplay.service.UserService - Login attempt for input: sreeja
+2026-01-31 18:58:26 WARN  com.revplay.service.UserService - Login failed for input: sreeja
+2026-01-31 19:00:41 INFO  com.revplay.service.UserService - Login attempt for input: login
+2026-01-31 19:00:41 WARN  com.revplay.service.UserService - Login failed for input: login
+2026-01-31 19:00:53 INFO  com.revplay.service.UserService - Login attempt for input: sreeja
+2026-01-31 19:00:53 INFO  com.revplay.service.UserService - Login successful for user: sreeja
+2026-01-31 19:01:00 WARN  com.revplay.service.SongService - Deleting songId: 4
+2026-01-31 19:01:32 WARN  com.revplay.service.AlbumService - Deleting albumId: 6
+2026-01-31 19:10:21 INFO  com.revplay.service.UserService - Login attempt for input: karthik
+2026-01-31 19:10:21 INFO  com.revplay.service.UserService - Login successful for user: karthik
+2026-01-31 19:13:15 INFO  com.revplay.service.PlaylistService - Creating playlist 'sad songs' for userId: 6
+2026-01-31 19:13:15 INFO  com.revplay.service.PlaylistService - Playlist created successfully: sad songs
+2026-01-31 19:19:51 INFO  com.revplay.service.PlaylistService - Creating playlist 'darling' for userId: 6
+2026-01-31 19:19:51 WARN  com.revplay.service.PlaylistService - Playlist creation failed: darling
+2026-01-31 19:20:38 INFO  com.revplay.service.PlaylistService - Creating playlist 'darling' for userId: 6
+2026-01-31 19:20:38 WARN  com.revplay.service.PlaylistService - Playlist creation failed: darling
+2026-01-31 19:23:19 INFO  com.revplay.service.UserService - Login attempt for input: karthik
+2026-01-31 19:23:20 INFO  com.revplay.service.UserService - Login successful for user: karthik
+2026-01-31 19:23:40 INFO  com.revplay.service.PlaylistService - Creating playlist 'darling' for userId: 6
+2026-01-31 19:23:40 INFO  com.revplay.service.PlaylistService - Playlist created successfully: darling
+2026-01-31 19:26:16 INFO  com.revplay.service.PlaylistService - Adding songId: 2 to playlistId: 3
+2026-01-31 19:30:51 INFO  com.revplay.service.FavoriteService - User 6 adding songId 1 to favorites
+2026-01-31 19:31:12 INFO  com.revplay.service.PlayerService - User 6 started playing songId: 1
+2026-01-31 19:31:12 INFO  com.revplay.service.SongService - Incrementing play count for songId: 1
+2026-01-31 19:31:12 INFO  com.revplay.service.RecentlyPlayedService - Adding songId: 1 to recently played for userId: 6
+2026-01-31 19:31:29 INFO  com.revplay.service.PlayerService - Song paused. songId: 1
+2026-01-31 19:31:38 INFO  com.revplay.service.PlayerService - Song stopped. songId: 1
+2026-01-31 19:32:18 INFO  com.revplay.service.PlaylistService - Creating playlist 'darling' for userId: 6
+2026-01-31 19:32:18 INFO  com.revplay.service.PlaylistService - Playlist created successfully: darling
+2026-01-31 19:36:36 INFO  com.revplay.service.UserService - Login attempt for input: karthik
+2026-01-31 19:36:37 INFO  com.revplay.service.UserService - Login successful for user: karthik
+2026-02-02 11:02:10 INFO  com.revplay.service.UserService - Verifying user: sample with email: geetha
+2026-02-02 11:02:10 WARN  com.revplay.service.UserService - User verification failed: sample
+2026-02-02 11:02:56 INFO  com.revplay.service.UserService - Login attempt for input: sreeja
+2026-02-02 11:02:56 INFO  com.revplay.service.UserService - Login successful for user: sreeja
+2026-02-02 11:03:29 INFO  com.revplay.service.ArtistService - Updating artist profile for userId: 3
+2026-02-02 11:04:31 INFO  com.revplay.service.AlbumService - Creating album 'sample' for artistId: 3
+2026-02-02 11:04:31 INFO  com.revplay.service.AlbumService - Album created successfully: sample
+2026-02-02 21:05:17 INFO  com.revplay.service.UserService - Verifying user: sreeja with email: sreeja
+2026-02-02 21:05:18 WARN  com.revplay.service.UserService - User verification failed: sreeja
+2026-02-02 21:05:41 INFO  com.revplay.service.UserService - Verifying user: sreeja with email: sreeja15@gmail.com
+2026-02-02 21:05:48 INFO  com.revplay.service.UserService - Password reset attempt for email: sreeja15@gmail.com
+2026-02-02 21:05:48 INFO  com.revplay.service.UserService - Password reset successful for email: sreeja15@gmail.com
+2026-02-02 22:05:46 INFO  com.revplay.service.UserService - Verifying user: sreeja with email: sreeja
+2026-02-02 22:08:55 INFO  com.revplay.service.UserService - Verifying user: sreeja with email: sreeja
+2026-02-02 22:10:29 INFO  com.revplay.service.UserService - Verifying user: sreeja with email: sreeja
+2026-02-02 22:15:08 INFO  com.revplay.service.UserService - Verifying user: sreeja with email: sreeja
+2026-02-02 22:15:30 INFO  com.revplay.service.UserService - Verifying user: sreeja with email: sreeja15@gmail.com
+2026-02-02 22:15:33 INFO  com.revplay.service.UserService - Password reset attempt for email: sreeja15@gmail.com
+2026-02-02 22:15:33 INFO  com.revplay.service.UserService - Password reset successful for email: sreeja15@gmail.com
+2026-02-02 22:18:13 INFO  com.revplay.service.UserService - Login attempt for input: sreeja15@gmail.com
+2026-02-02 22:18:13 INFO  com.revplay.service.UserService - Login successful for user: sreeja
+2026-02-02 22:18:41 INFO  com.revplay.service.ArtistService - Updating artist profile for userId: 4
+2026-02-02 22:19:12 INFO  com.revplay.service.ArtistService - Updating artist profile for userId: 4
+2026-02-02 22:21:20 INFO  com.revplay.service.AlbumService - Creating album 'varssham' for artistId: 4
+2026-02-02 22:21:20 INFO  com.revplay.service.AlbumService - Album created successfully: varssham
+2026-02-02 22:22:12 INFO  com.revplay.service.SongService - Uploading song: koapama by artistId: 4
+2026-02-02 22:22:12 INFO  com.revplay.service.SongService - Song uploaded successfully: koapama
+2026-02-02 22:25:50 INFO  com.revplay.service.UserService - Verifying user: sreeja with email: sreeja
+2026-02-02 22:25:50 WARN  com.revplay.service.UserService - User verification failed: sreeja
+2026-02-02 22:27:32 INFO  com.revplay.service.UserService - Login attempt for input: sreeja15@gmail.com
+2026-02-02 22:27:32 INFO  com.revplay.service.UserService - Login successful for user: sreeja
+2026-02-02 22:30:10 INFO  com.revplay.service.UserService - Verifying user: sreeja with email: sreeja
+2026-02-02 22:30:10 WARN  com.revplay.service.UserService - User verification failed: sreeja
+2026-02-02 22:35:10 INFO  com.revplay.service.UserService - Login attempt for input: sreeja
+2026-02-02 22:35:10 INFO  com.revplay.service.UserService - Login successful for user: sreeja
+2026-02-02 22:35:39 INFO  com.revplay.service.AlbumService - Creating album 'fidaa' for artistId: 3
+2026-02-02 22:35:39 INFO  com.revplay.service.AlbumService - Album created successfully: fidaa
+2026-02-02 22:36:39 INFO  com.revplay.service.AlbumService - Updating albumId: 9
+2026-02-02 22:37:59 INFO  com.revplay.service.UserService - Verifying user: sreeja with email: sreeja
+2026-02-02 22:37:59 WARN  com.revplay.service.UserService - User verification failed: sreeja
+2026-02-02 22:51:21 INFO  com.revplay.service.UserService - Verifying user: sreeja with email: sreeja15@gmail.com
+2026-02-02 22:51:28 INFO  com.revplay.service.UserService - Password reset attempt for email: sreeja15@gmail.com
+2026-02-02 22:51:28 INFO  com.revplay.service.UserService - Password reset successful for email: sreeja15@gmail.com
+2026-02-02 22:51:47 INFO  com.revplay.service.UserService - Login attempt for input: sreeja
+2026-02-02 22:51:47 INFO  com.revplay.service.UserService - Login successful for user: sreeja
+2026-02-02 22:53:53 INFO  com.revplay.service.UserService - Login attempt for input: sreeja15@gmail.com
+2026-02-02 22:53:53 INFO  com.revplay.service.UserService - Login successful for user: sreeja
+2026-02-03 00:05:47 INFO  com.revplay.service.UserService - Login attempt for input: sreeja15@gmail.com
+2026-02-03 00:05:48 INFO  com.revplay.service.UserService - Login successful for user: sreeja
+2026-02-03 00:07:12 INFO  com.revplay.service.UserService - Login attempt for input: sreeja15@gmail.com
+2026-02-03 00:07:13 INFO  com.revplay.service.UserService - Login successful for user: sreeja
+2026-02-03 00:09:48 INFO  com.revplay.service.UserService - Login attempt for input: karthik5@gmail.com
+2026-02-03 00:09:48 INFO  com.revplay.service.UserService - Login successful for user: karthik
+2026-02-03 00:10:27 INFO  com.revplay.service.UserService - Login attempt for input: karthik5@gmail.com
+2026-02-03 00:10:28 INFO  com.revplay.service.UserService - Login successful for user: karthik
+2026-02-03 00:11:42 INFO  com.revplay.service.UserService - Login attempt for input: sreeja15@gmail.com
+2026-02-03 00:11:42 WARN  com.revplay.service.UserService - Login failed for input: sreeja15@gmail.com
+2026-02-03 00:13:24 INFO  com.revplay.service.UserService - Login attempt for input: sreeja15@gmail.com
+2026-02-03 00:13:24 INFO  com.revplay.service.UserService - Login successful for user: sreeja
+2026-02-03 00:15:06 WARN  com.revplay.service.SongService - Deleting songId: 5
+2026-02-03 00:15:42 WARN  com.revplay.service.AlbumService - Deleting albumId: 5
+2026-02-03 00:24:54 INFO  com.revplay.service.UserService - Login attempt for input: sreeja15@gmail.com
+2026-02-03 00:24:54 INFO  com.revplay.service.UserService - Login successful for user: sreeja
+2026-02-03 00:27:15 INFO  com.revplay.service.AlbumService - Creating album 'Hits' for artistId: 1
+2026-02-03 00:27:15 INFO  com.revplay.service.AlbumService - Album created successfully: Hits
+2026-02-03 00:27:15 WARN  com.revplay.service.AlbumService - Deleting albumId: 5
+2026-02-03 00:27:15 INFO  com.revplay.service.AlbumService - Updating albumId: 5
+2026-02-03 00:27:15 INFO  com.revplay.service.PlaylistService - Adding songId: 20 to playlistId: 10
+2026-02-03 00:27:15 INFO  com.revplay.service.PlaylistService - Updating playlistId: 5
+2026-02-03 00:27:15 WARN  com.revplay.service.PlaylistService - Deleting playlistId: 5
+2026-02-03 00:27:15 WARN  com.revplay.service.PlaylistService - Removing songId: 20 from playlistId: 10
+2026-02-03 00:27:15 INFO  com.revplay.service.PlaylistService - Creating playlist 'MyHits' for userId: 1
+2026-02-03 00:27:15 INFO  com.revplay.service.PlaylistService - Playlist created successfully: MyHits
+2026-02-03 00:27:15 INFO  com.revplay.service.PlayerService - User 1 started playing songId: 10
+2026-02-03 00:27:15 INFO  com.revplay.service.PlayerService - Song paused. songId: 10
+2026-02-03 00:27:15 INFO  com.revplay.service.PlayerService - Song resumed. songId: 10
+2026-02-03 00:27:15 WARN  com.revplay.service.PlayerService - Pause attempted but no song is playing
+2026-02-03 00:27:15 INFO  com.revplay.service.PlayerService - User 1 started playing songId: 10
+2026-02-03 00:27:15 INFO  com.revplay.service.PlayerService - User 1 started playing songId: 10
+2026-02-03 00:27:15 INFO  com.revplay.service.PlayerService - Song stopped. songId: 10
+2026-02-03 00:27:15 INFO  com.revplay.service.PlayerService - User 1 started playing songId: 10
+2026-02-03 00:27:15 INFO  com.revplay.service.PlayerService - Song paused. songId: 10
+2026-02-03 00:27:15 INFO  com.revplay.service.PlayerService - Song resumed. songId: 10
+2026-02-03 00:27:15 INFO  com.revplay.service.UserService - Login attempt for input: sreejs
+2026-02-03 00:27:15 INFO  com.revplay.service.UserService - Login successful for user: sreejs
+2026-02-03 00:27:15 INFO  com.revplay.service.UserService - Verifying user: sreejs with email: mail@test.com
+2026-02-03 00:27:15 INFO  com.revplay.service.UserService - Registration attempt for username: sreejs, email: sreejs@mail.com
+2026-02-03 00:27:15 INFO  com.revplay.service.UserService - User registered successfully: sreejs
+2026-02-03 00:27:15 INFO  com.revplay.service.UserService - Password reset attempt for email: mail@test.com
+2026-02-03 00:27:15 INFO  com.revplay.service.UserService - Password reset successful for email: mail@test.com
+2026-02-03 00:27:15 INFO  com.revplay.service.FavoriteService - User 1 adding songId 10 to favorites
+2026-02-03 00:27:15 WARN  com.revplay.service.FavoriteService - User 1 removing songId 10 from favorites
+2026-02-03 00:27:15 INFO  com.revplay.service.ArtistService - Artist profile creation attempt for userId: 1
+2026-02-03 00:27:15 WARN  com.revplay.service.ArtistService - Artist profile already exists for userId: 1
+2026-02-03 00:27:15 INFO  com.revplay.service.ArtistService - Updating artist profile for userId: 1
+2026-02-03 00:27:15 INFO  com.revplay.service.ArtistService - Artist profile creation attempt for userId: 1
+2026-02-03 00:27:15 INFO  com.revplay.service.ArtistService - Artist profile created successfully for userId: 1
+2026-02-03 00:27:15 INFO  com.revplay.service.RecentlyPlayedService - Adding songId: 101 to recently played for userId: 1
+2026-02-03 00:27:15 WARN  com.revplay.service.SongService - Deleting songId: 5
+2026-02-03 00:27:15 WARN  com.revplay.service.SongService - Song does not exist: 99
+2026-02-03 00:27:15 INFO  com.revplay.service.SongService - Browsing songs by genre: Pop
+2026-02-03 00:27:15 INFO  com.revplay.service.SongService - Updating songId: 5
+2026-02-03 00:27:15 INFO  com.revplay.service.SongService - Song updated successfully: 5
+2026-02-03 00:27:15 INFO  com.revplay.service.SongService - Song exists: 10
+2026-02-03 00:27:15 INFO  com.revplay.service.SongService - Uploading song: Shape by artistId: 1
+2026-02-03 00:27:15 INFO  com.revplay.service.SongService - Song uploaded successfully: Shape
+2026-02-03 00:27:15 INFO  com.revplay.service.SongService - Incrementing play count for songId: 2
+2026-02-03 00:27:15 INFO  com.revplay.service.SongService - Searching songs by title: Love
+2026-02-03 00:38:03 INFO  com.revplay.service.UserService - Login attempt for input: sreeja15@gmail.com
+2026-02-03 00:38:03 INFO  com.revplay.service.UserService - Login successful for user: sreeja
+2026-02-03 00:45:47 INFO  com.revplay.service.UserService - Verifying user: sreeja with email: sreeja
+2026-02-03 00:45:47 WARN  com.revplay.service.UserService - User verification failed: sreeja
+2026-02-03 00:46:22 INFO  com.revplay.service.UserService - Login attempt for input: sreeja15@gmail.com
+2026-02-03 00:46:22 INFO  com.revplay.service.UserService - Login successful for user: sreeja
+2026-02-03 10:50:15 INFO  com.revplay.service.UserService - Login attempt for input: sreeja15@gmail.com
+2026-02-03 10:50:15 INFO  com.revplay.service.UserService - Login successful for user: sreeja
+2026-02-03 10:52:28 INFO  com.revplay.service.UserService - Login attempt for input: sreeja@gmail.com
+2026-02-03 10:52:28 INFO  com.revplay.service.UserService - Login successful for user: sreeja

@@ -19,6 +19,7 @@ public interface SongDao {
 	public void incrementPlayCount(int songId);
 	public int getFavoritesCount(int songId);
 	public boolean artistExists(String artistName);
+	public List<String> searchGenres(String text);
 
 
 }

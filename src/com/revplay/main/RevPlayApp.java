@@ -14,26 +14,26 @@ public class RevPlayApp {
 
     public static Scanner sc = new Scanner(System.in);
 
-    //  DAO Layer
+    // 🔹 DAO Layer
     private static UserDao userDao=new UserDaoImpl();
 
-    // Service Layer (constructor injection)
+    // 🔹 Service Layer (constructor injection)
     private static UserService userService = new UserService(userDao);
 
     public static void main(String[] args) {
 
         while (true) {
-            System.out.println("\n===== REVPLAY PORTAL=====");
-            System.out.println("1. Create Account");
+            System.out.println("\n===== REVPLAY =====");
+            System.out.println("1. create account");
             System.out.println("2. Login");
-            System.out.println("3. Recover Credentials");
-            System.out.println("4. Close Appllication");
-            System.out.print("Select Option: ");
+            System.out.println("3. Recover credentials");
+            System.out.println("4. Exit");
+            System.out.print("Choice: ");
 
             String input = sc.nextLine();
 
             if (input == null || input.trim().isEmpty()) {
-                System.out.println("Selection is required.");
+                System.out.println("Please enter a choice.");
                 continue;
             }
 
@@ -42,7 +42,7 @@ public class RevPlayApp {
             try {
                 choice = Integer.parseInt(input);
             } catch (NumberFormatException e) {
-                System.out.println("Invalid entry. Please enter digits only(1-4).");
+                System.out.println("Invalid input. Numbers only (1-4).");
                 continue;
             }
 
@@ -67,51 +67,51 @@ public class RevPlayApp {
                     break;
 
                 case 4:
-                    System.out.println("Application closed. See you again!");
+                    System.out.println("Exiting RevPlay. Goodbye!");
                     System.exit(0);
 
                 default:
-                    System.out.println("Please choose a valid option (1-4).");
+                    System.out.println("Invalid choice. Select 1-4.");
             }
         }
     }
 
-    // Separated logic (clean design)
+    // 🔹 Separated logic (clean design)
     private static void handleForgotPassword() {
         try {
-            System.out.print("Provide your registered Email ID: ");
+            System.out.print("Enter your registered Email: ");
             String email = sc.nextLine();
 
-            System.out.print("Provide your Account Name: ");
+            System.out.print("Enter your Username: ");
             String username = sc.nextLine();
 
             if (email.trim().isEmpty() || username.trim().isEmpty()) {
-                System.out.println("Input fields must not be blank.");
+                System.out.println("Fields cannot be empty.");
                 return;
             }
 
             boolean verified = userService.verifyUser(email, username);
 
             if (!verified) {
-                System.out.println("Account not located. Please re-check details");
+                System.out.println("User not found. Check email/username.");
                 return;
             }
 
-            System.out.print("Set New Password: ");
+            System.out.print("Enter New Password: ");
             String newPass = sc.nextLine();
 
             if (newPass.trim().isEmpty()) {
-                System.out.println("Password cannot be blank.");
+                System.out.println("Password cannot be empty.");
                 return;
             }
 
             if (userService.resetPassword(email, newPass))
-                System.out.println("Credentials updated successfully! You may sign in now.");
+                System.out.println("Password reset successful! You can login now.");
             else
-                System.out.println("Unable to update credentials");
+                System.out.println("Password reset failed.");
 
         } catch (Exception e) {
-            System.out.println("Unexpected error occurred. Please try again.");
+            System.out.println("Something went wrong. Try again.");
         }
     }
 }

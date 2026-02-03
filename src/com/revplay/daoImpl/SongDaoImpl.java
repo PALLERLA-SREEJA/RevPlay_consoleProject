@@ -258,5 +258,33 @@ public class SongDaoImpl implements SongDao{
 
         return exists;
     }
+    
+ // ================= SEARCH GENRES BY TEXT =================
+    public List<String> searchGenres(String text) {
+        List<String> genres = new ArrayList<String>();
+
+        String sql = "SELECT DISTINCT LOWER(GENRE) AS GEN FROM SONGS WHERE LOWER(GENRE) LIKE LOWER(?)";
+
+        try {Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setString(1, "%" + text + "%");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String g = rs.getString("GEN");
+                // Make first letter capital (optional)
+                g = g.substring(0,1).toUpperCase() + g.substring(1);
+                genres.add(g);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return genres;
+    }
+
+
 
 }

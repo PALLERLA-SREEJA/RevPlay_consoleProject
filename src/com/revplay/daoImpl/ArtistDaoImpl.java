@@ -3,6 +3,7 @@ package com.revplay.daoImpl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
 
 import com.revplay.Dao.ArtistDao;
 import com.revplay.model.Artist;
@@ -93,4 +94,39 @@ public class ArtistDaoImpl implements ArtistDao {
         }
         return null;
     }
+    
+    @Override
+    public List<Artist> searchArtistsByName(String text) {
+
+        List<Artist> list = new java.util.ArrayList<Artist>();
+
+        String sql =
+            "SELECT a.ARTIST_ID, a.USER_ID, a.BIO, a.GENRE, a.SOCIAL_LINKS, u.USERNAME " +
+            "FROM ARTISTS a JOIN USERS u ON a.USER_ID = u.USER_ID " +
+            "WHERE LOWER(u.USERNAME) LIKE LOWER(?)";
+
+        try {Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+
+            ps.setString(1, "%" + text + "%");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Artist a = new Artist();
+                a.setArtistId(rs.getInt("ARTIST_ID"));
+                a.setUserId(rs.getInt("USER_ID"));
+                a.setBio(rs.getString("BIO"));
+                a.setGenre(rs.getString("GENRE"));
+                a.setSocialLinks(rs.getString("SOCIAL_LINKS"));
+                list.add(a);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+
+
 }

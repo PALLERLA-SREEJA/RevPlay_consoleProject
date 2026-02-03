@@ -175,4 +175,10 @@ public class SongService {
         logger.info("Searching songs by title: {}", title);
         return songDao.searchSongsByTitle(title);
     }
+    
+    public List<String> searchGenres(String text) {
+        logger.info("Searching genres matching: {}", text);
+        return songDao.searchGenres(text);
+    }
+
 }

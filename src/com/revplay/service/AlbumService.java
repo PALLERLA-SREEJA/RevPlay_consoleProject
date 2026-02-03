@@ -8,18 +8,19 @@ import org.slf4j.LoggerFactory;
 
 
 import com.revplay.Dao.AlbumDao;
-import com.revplay.daoImpl.AlbumDaoImpl;
+
 import com.revplay.model.Album;
 
 public class AlbumService {
 
     private static final Logger logger = LoggerFactory.getLogger(AlbumService.class);
 
-    private AlbumDao albumDao=new AlbumDaoImpl();
+    private AlbumDao albumDao;
 
     public AlbumService(AlbumDao albumDao) {
         this.albumDao = albumDao;
     }
+
 
     //  CREATE ALBUM
     public boolean createAlbum(int artistId, String name, Date releaseDate) {
@@ -98,4 +99,20 @@ public class AlbumService {
             return -1;
         }
     }
+    
+ //  SEARCH ALBUMS BY NAME (for Browse by Album feature)
+    public List<Album> searchAlbumsByName(String name) {
+
+        logger.debug("Searching albums by name: {}", name);
+
+        try {
+            return albumDao.searchAlbumsByName(name);
+        } catch (Exception e) {
+            logger.error("Error searching albums by name: {}", name, e);
+            return null;
+        }
+    }
+    
+
+
 }

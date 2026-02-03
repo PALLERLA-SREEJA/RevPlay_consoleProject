@@ -9,6 +9,8 @@ import com.revplay.Dao.UserDao;
 import com.revplay.model.User;
 import com.revplay.util.DBConnection;
 
+
+
 public class UserDaoImpl implements UserDao {
 
     @Override
@@ -27,6 +29,8 @@ public class UserDaoImpl implements UserDao {
             return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
+
+            // ORA-00001 → unique constraint violation
             if (e.getErrorCode() == 1) {
                 System.out.println("Email already exists. Try logging in instead.");
                 return false;
@@ -41,6 +45,7 @@ public class UserDaoImpl implements UserDao {
             e.printStackTrace();
             return false;
         }
+
     }
 
     @Override

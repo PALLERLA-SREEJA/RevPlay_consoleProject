@@ -94,5 +94,37 @@ public class AlbumDaoImpl implements AlbumDao {
 
         return -1; // not found
     }
+	
+	@Override
+	public List<Album> searchAlbumsByName(String name) {
+
+	    List<Album> list = new ArrayList<Album>();
+
+	    String sql = "SELECT * FROM ALBUMS WHERE LOWER(ALBUM_NAME) LIKE LOWER(?)";
+
+	    try {Connection con = DBConnection.getConnection();
+	         PreparedStatement ps = con.prepareStatement(sql);
+
+	        ps.setString(1, "%" + name + "%");
+
+	        ResultSet rs = ps.executeQuery();
+
+	        while (rs.next()) {
+	            Album a = new Album();
+	            a.setAlbumId(rs.getInt("ALBUM_ID"));
+	            a.setArtistId(rs.getInt("ARTIST_ID"));
+	            a.setAlbumName(rs.getString("ALBUM_NAME"));
+	            a.setReleaseDate(rs.getDate("RELEASE_DATE"));
+	            list.add(a);
+	        }
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return list;
+	}
+
+
 
 }

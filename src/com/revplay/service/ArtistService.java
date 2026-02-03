@@ -1,5 +1,7 @@
 package com.revplay.service;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -94,4 +96,18 @@ public class ArtistService {
             return false;
         }
     }
+    
+
+    public List<Artist> searchArtistsByName(String text) {
+
+        logger.info("Searching artists matching: {}", text);
+
+        try {
+            return artistDao.searchArtistsByName(text);
+        } catch (Exception e) {
+            logger.error("Error searching artists", e);
+            return null;
+        }
+    }
+
 }

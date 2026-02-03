@@ -33,7 +33,13 @@ public class UserMenu {
         String password = RevPlayApp.sc.nextLine();
 
         System.out.print("Enter Role (USER/ARTIST): ");
-        String role = RevPlayApp.sc.nextLine();
+        String role = RevPlayApp.sc.nextLine().trim().toUpperCase();
+
+        if (!role.equals("USER") && !role.equals("ARTIST")) {
+            System.out.println("Invalid role. Please enter USER or ARTIST only.");
+            return;   // returns to main menu
+        }
+
 
         boolean success = userService.register(username, email, password, role);
 

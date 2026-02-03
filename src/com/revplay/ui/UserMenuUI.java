@@ -1,16 +1,19 @@
 package com.revplay.ui;
 
 import com.revplay.Dao.AlbumDao;
+import com.revplay.Dao.ArtistDao;
 import com.revplay.Dao.FavoriteDao;
 import com.revplay.Dao.PlaylistDao;
 import com.revplay.Dao.RecentlyPlayedDao;
 import com.revplay.Dao.SongDao;
 import com.revplay.daoImpl.AlbumDaoImpl;
+import com.revplay.daoImpl.ArtistDaoImpl;
 import com.revplay.daoImpl.FavoriteDaoImpl;
 import com.revplay.daoImpl.PlaylistDaoImpl;
 import com.revplay.daoImpl.RecentlyPlayedDaoImpl;
 import com.revplay.daoImpl.SongDaoImpl;
 import com.revplay.main.RevPlayApp;
+import com.revplay.model.Artist;
 import com.revplay.model.Playlist;
 import com.revplay.model.Song;
 import com.revplay.model.User;
@@ -28,6 +31,9 @@ public class UserMenuUI {
     private static FavoriteDao favoriteDao=new FavoriteDaoImpl();
     private static RecentlyPlayedDao recentDao= new RecentlyPlayedDaoImpl();
     private static AlbumDao albumDao= new AlbumDaoImpl();
+    private static ArtistDao artistDao = new ArtistDaoImpl();
+
+
 
     //  CREATE SERVICE LAYER (constructor injection)
     private static SongService songService = new SongService(songDao);
@@ -35,6 +41,7 @@ public class UserMenuUI {
     private static FavoriteService favoriteService = new FavoriteService(favoriteDao);
     private static RecentlyPlayedService recentService = new RecentlyPlayedService(recentDao);
     private static AlbumService albumService = new AlbumService(albumDao);
+    private static ArtistService artistService = new ArtistService(artistDao);
 
     //  PlayerService depends on 2 services
     private static PlayerService playerService =
@@ -95,7 +102,7 @@ public class UserMenuUI {
                     
                 case 2:
 
-                    //  PLAYLIST NAME
+                    // 🎵 PLAYLIST NAME
                     System.out.print("Name: ");
                     String name = RevPlayApp.sc.nextLine().trim();
 
@@ -110,7 +117,7 @@ public class UserMenuUI {
                         break;
                     }
 
-                    //  DESCRIPTION
+                    // 📝 DESCRIPTION
                     System.out.print("Desc: ");
                     String d = RevPlayApp.sc.nextLine().trim();
 
@@ -119,7 +126,7 @@ public class UserMenuUI {
                         break;
                     }
 
-                    //  PRIVACY
+                    // 🔐 PRIVACY
                     System.out.print("Privacy(PUBLIC/PRIVATE): ");
                     String p = RevPlayApp.sc.nextLine().trim().toUpperCase();
 
@@ -128,7 +135,7 @@ public class UserMenuUI {
                         break;
                     }
 
-                    //  CREATE PLAYLIST
+                    // ✅ CREATE PLAYLIST
                     if (playlistService.create(user.getUserId(), name, d, p))
                         System.out.println("Playlist created successfully!");
                     else
@@ -136,11 +143,12 @@ public class UserMenuUI {
 
                     break;
 
+
                 case 3:
                     try {
                         List<Playlist> pls = playlistService.getMine(user.getUserId());
 
-                        // ðŸ”´ No playlists exist
+                        // No playlists exist
                         if (pls == null || pls.isEmpty()) {
                             System.out.println("You have no playlists.");
                             break;
@@ -156,7 +164,7 @@ public class UserMenuUI {
                         System.out.print("Enter Playlist ID to open (0 to cancel): ");
                         String inputId = RevPlayApp.sc.nextLine();
 
-                        // ðŸ”´ Empty input
+                        // Empty input
                         if (inputId == null || inputId.trim().isEmpty()) {
                             System.out.println("Cancelled.");
                             break;
@@ -172,7 +180,7 @@ public class UserMenuUI {
 
                         if (selectedId == 0) break;
 
-                        // ðŸ”´ Validate playlist belongs to user
+                        // Validate playlist belongs to user
                         boolean valid = false;
                         for (Playlist pl : pls) {
                             if (pl.getPlaylistId() == selectedId) {
@@ -207,16 +215,16 @@ public class UserMenuUI {
 
 
                 case 4:
-                    // Ã°Å¸â€�Â¹ Get user's playlists
+                    // ¹ Get user's playlists
                     List<Playlist> playlists = playlistService.getMine(user.getUserId());
 
-                    // Ã°Å¸â€�Â´ STOP if no playlists
+                    // ´ STOP if no playlists
                     if (playlists == null || playlists.isEmpty()) {
                         System.out.println("No playlists present to add songs.");
                         break;
                     }
 
-                    // Ã°Å¸â€�Â¹ Show playlists
+                    // ¹ Show playlists
                     System.out.println("\n--- My Playlists ---");
                     for (Playlist pl : playlists) {
                         System.out.println(pl.getPlaylistId() + " - " + pl.getName());
@@ -225,7 +233,7 @@ public class UserMenuUI {
                     System.out.print("Playlist ID: ");
                     int pid = Integer.parseInt(RevPlayApp.sc.nextLine());
 
-                    // Ã°Å¸â€�Â´ Validate playlist ID
+                    // ´ Validate playlist ID
                     boolean validPlaylist = false;
                     for (Playlist pl : playlists) {
                         if (pl.getPlaylistId() == pid) {
@@ -235,20 +243,20 @@ public class UserMenuUI {
                     }
 
                     if (!validPlaylist) {
-                        System.out.println(" Invalid Playlist ID.");
+                        System.out.println("â Œ Invalid Playlist ID.");
                         break;
                     }
 
-                    // Ã°Å¸â€�Â¹ Get all songs
+                    // ¹ Get all songs
                     List<Song> allSongs = songService.viewAllSongs();
 
-                    // Ã°Å¸â€�Â´ STOP if no songs exist
+                    // ´ STOP if no songs exist
                     if (allSongs == null || allSongs.isEmpty()) {
                         System.out.println("No songs available.");
                         break;
                     }
 
-                    // Ã°Å¸â€�Â¹ Show songs
+                    // ¹ Show songs
                     System.out.println("\n--- Available Songs ---");
                     for (Song s : allSongs) {
                         System.out.println(s.getSongId() + " - " + s.getTitle());
@@ -257,7 +265,7 @@ public class UserMenuUI {
                     System.out.print("Song ID: ");
                     int sid = Integer.parseInt(RevPlayApp.sc.nextLine());
 
-                    // Ã°Å¸â€�Â´ Validate song ID
+                    // ´ Validate song ID
                     boolean validSong = false;
                     for (Song s : allSongs) {
                         if (s.getSongId() == sid) {
@@ -271,7 +279,7 @@ public class UserMenuUI {
                         break;
                     }
 
-                    // Ã°Å¸â€�Â¹ Add to playlist
+                    // ¹ Add to playlist
                     if (playlistService.addSong(pid, sid))
                         System.out.println("Song added to playlist!");
                     else
@@ -285,13 +293,13 @@ public class UserMenuUI {
                 case 5:
                     List<Playlist> playlists2 = playlistService.getMine(user.getUserId());
 
-                    // Ã°Å¸â€�Â´ STOP if no playlists
+                    // ´ STOP if no playlists
                     if (playlists2 == null || playlists2.isEmpty()) {
                         System.out.println("No playlists available.");
                         break;
                     }
 
-                    // Ã°Å¸â€�Â¹ Show playlists
+                    // ¹ Show playlists
                     System.out.println("\n--- My Playlists ---");
                     for (Playlist pl : playlists2) {
                         System.out.println(pl.getPlaylistId() + " - " + pl.getName());
@@ -300,7 +308,7 @@ public class UserMenuUI {
                     System.out.print("Playlist ID: ");
                     int pid2 = Integer.parseInt(RevPlayApp.sc.nextLine());
 
-                    // Ã°Å¸â€�Â´ Validate playlist ID
+                    // ´ Validate playlist ID
                     boolean validPlaylist2 = false;
                     for (Playlist pl : playlists2) {
                         if (pl.getPlaylistId() == pid2) {
@@ -310,11 +318,11 @@ public class UserMenuUI {
                     }
 
                     if (!validPlaylist2) {
-                        System.out.println("Invalid Playlist ID.");
+                        System.out.println("â Œ Invalid Playlist ID.");
                         break;
                     }
 
-                    // Ã°Å¸â€�Â¹ Show songs inside playlist
+                    // ¹ Show songs inside playlist
                     List<Song> playlistSongs = playlistService.getSongsInPlaylist(pid2);
 
                     if (playlistSongs == null || playlistSongs.isEmpty()) {
@@ -330,7 +338,7 @@ public class UserMenuUI {
                     System.out.print("Song ID to remove: ");
                     int sid2 = Integer.parseInt(RevPlayApp.sc.nextLine());
 
-                    // Ã°Å¸â€�Â´ Validate song exists in playlist
+                    // ´ Validate song exists in playlist
                     boolean validSong2 = false;
                     for (Song s : playlistSongs) {
                         if (s.getSongId() == sid2) {
@@ -355,13 +363,13 @@ public class UserMenuUI {
                 case 6:
                     List<Playlist> myPlaylists = playlistService.getMine(user.getUserId());
 
-                    // Ã°Å¸â€�Â´ STOP IF EMPTY
+                    // ´ STOP IF EMPTY
                     if (myPlaylists == null || myPlaylists.isEmpty()) {
                         System.out.println("There are no playlists to delete.");
                         break;
                     }
 
-                    // Ã°Å¸â€�Â¹ Show playlists
+                    // ¹ Show playlists
                     System.out.println("\n--- My Playlists ---");
                     for (Playlist pl : myPlaylists) {
                         System.out.println(pl.getPlaylistId() + " - " + pl.getName());
@@ -370,7 +378,7 @@ public class UserMenuUI {
                     System.out.print("Playlist ID: ");
                     pid = Integer.parseInt(RevPlayApp.sc.nextLine());
 
-                    // Ã°Å¸â€�Â´ Check ID exists
+                    // ´ Check ID exists
                     boolean found = false;
                     for (Playlist pl : myPlaylists) {
                         if (pl.getPlaylistId() == pid) {
@@ -412,7 +420,7 @@ public class UserMenuUI {
                         System.out.print("Enter Song ID to add to favorites (0 to cancel): ");
                         String input1 = RevPlayApp.sc.nextLine();
 
-                        // ðŸ”´ Blank input
+                        // Blank input
                         if (input1.isEmpty()) {
                             System.out.println("Operation cancelled.");
                             break;
@@ -420,7 +428,7 @@ public class UserMenuUI {
 
                         int favSongId;
 
-                        // ðŸ”´ Not a number
+                        // Not a number
                         try {
                             favSongId = Integer.parseInt(input1);
                         } catch (NumberFormatException e) {
@@ -433,7 +441,7 @@ public class UserMenuUI {
                             break;
                         }
 
-                        // ðŸ”´ Validate song exists
+                        // Validate song exists
                         boolean songExists = false;
                         for (Song s : allSongsFav) {
                             if (s.getSongId() == favSongId) {
@@ -447,7 +455,7 @@ public class UserMenuUI {
                             break;
                         }
 
-                        // ðŸ”´ Check duplicate favorite
+                        // Check duplicate favorite
                         List<Song> favList = favoriteService.getFavorites(user.getUserId());
 
                         boolean alreadyFav = false;
@@ -462,7 +470,7 @@ public class UserMenuUI {
 
                         if (alreadyFav) {
                             System.out.println("Song already in favorites.");
-                            break; // ðŸš« STOP DB CALL
+                            break; // 🚫 STOP DB CALL
                         }
 
                         //  Safe DB insert
@@ -484,7 +492,7 @@ public class UserMenuUI {
                         //  Fetch user's favorite songs
                         List<Song> favSongs = favoriteService.getFavorites(user.getUserId());
 
-                        // ðŸ”´ No favorites exist
+                        // No favorites exist
                         if (favSongs == null || favSongs.isEmpty()) {
                             System.out.println("You have no favorite songs to remove.");
                             break;
@@ -499,7 +507,7 @@ public class UserMenuUI {
                         System.out.print("Enter Song ID to remove (0 to cancel): ");
                         String input1 = RevPlayApp.sc.nextLine();
 
-                        // ðŸ”´ Empty input
+                        // Empty input
                         if (input1.isEmpty()) {
                             System.out.println("Operation cancelled.");
                             break;
@@ -507,7 +515,7 @@ public class UserMenuUI {
 
                         int removeId;
 
-                        // ðŸ”´ Non-numeric input
+                        // Non-numeric input
                         try {
                             removeId = Integer.parseInt(input1);
                         } catch (NumberFormatException e) {
@@ -515,13 +523,13 @@ public class UserMenuUI {
                             break;
                         }
 
-                        // ðŸ”´ Cancel operation
+                        // Cancel operation
                         if (removeId == 0) {
                             System.out.println("Operation cancelled.");
                             break;
                         }
 
-                        // ðŸ”´ Validate song exists in favorites
+                        // Validate song exists in favorites
                         boolean found1 = false;
                         for (Song s : favSongs) {
                             if (s.getSongId() == removeId) {
@@ -567,7 +575,7 @@ public class UserMenuUI {
                     try {
                         while (true) {
 
-                            // ðŸ”´ If NO SONG is currently playing â†’ ask user to pick one
+                            // If NO SONG is currently playing → ask user to pick one
                             if (!playerService.isPlaying()) {
 
                                 List<Song> songsList = songService.viewAllSongs();
@@ -597,7 +605,7 @@ public class UserMenuUI {
 
                                 if (songId == 0) break;
 
-                                // ðŸ”� Check song exists
+                                // 🔍 Check song exists
                                 boolean exists = false;
                                 for (Song s : songsList) {
                                     if (s.getSongId() == songId) {
@@ -611,12 +619,12 @@ public class UserMenuUI {
                                     continue;
                                 }
 
-                                // â–¶ Play song + increase play count
+                                // ▶ Play song + increase play count
                                 playerService.playSong(songId);
                             }
 
-                            // ðŸŽµ PLAYER CONTROLS
-                            System.out.println(" PLAYER MENU");
+                            // 🎵 PLAYER CONTROLS
+                            System.out.println("\n🎵 PLAYER MENU");
                             System.out.println("1. Pause");
                             System.out.println("2. Resume");
                             System.out.println("3. Stop");
@@ -648,7 +656,7 @@ public class UserMenuUI {
                                     break;
 
                                 case 4:
-                                    // â­� THIS LINE FIXES YOUR PROBLEM
+                                    // ⭐ THIS LINE FIXES YOUR PROBLEM
                                     playerService.stopSong();   // reset player state
                                     break;
 
@@ -690,7 +698,7 @@ public class UserMenuUI {
                         System.out.print("Enter Album Name: ");
                         String albumName = RevPlayApp.sc.nextLine();
 
-                        // ðŸ”´ Empty check
+                        // Empty check
                         if (albumName == null || albumName.trim().isEmpty()) {
                             System.out.println("Album name cannot be empty.");
                             break;
@@ -705,7 +713,7 @@ public class UserMenuUI {
                             break;
                         }
 
-                        // ðŸ”´ Album not found
+                        // Album not found
                         if (albumId <= 0) {
                             System.out.println("No album found with that name.");
                             break;
@@ -746,7 +754,7 @@ public class UserMenuUI {
 
                         String input2 = RevPlayApp.sc.nextLine();
 
-                        // ðŸ”´ Empty input check
+                        // Empty input check
                         if (input2 == null || input2.trim().isEmpty()) {
                             System.out.println("Choice cannot be empty.");
                             break;
@@ -765,40 +773,126 @@ public class UserMenuUI {
                         switch (opt) {
 
                             case 1:
-                                System.out.print("Enter Genre: ");
-                                String genre = RevPlayApp.sc.nextLine();
+                                System.out.print("Enter Genre Keyword: ");
+                                String genreInput = RevPlayApp.sc.nextLine().trim();
 
-                                if (genre == null || genre.trim().isEmpty()) {
+                                if (genreInput.isEmpty()) {
                                     System.out.println("Genre cannot be empty.");
                                     break;
                                 }
 
-                                result = songService.getSongsByGenre(genre.trim());
+                                //  Step 1: Find matching genres
+                                List<String> genres = songService.searchGenres(genreInput);
+
+                                if (genres == null || genres.isEmpty()) {
+                                    System.out.println("No matching genres found.");
+                                    break;
+                                }
+
+                                System.out.println("\n--- Matching Genres ---");
+                                for (int i = 0; i < genres.size(); i++) {
+                                    System.out.println((i + 1) + ". " + genres.get(i));
+                                }
+
+                                System.out.print("Select Genre Number: ");
+                                int gChoice;
+                                try {
+                                    gChoice = Integer.parseInt(RevPlayApp.sc.nextLine());
+                                } catch (Exception e) {
+                                    System.out.println("Invalid selection.");
+                                    break;
+                                }
+
+                                if (gChoice < 1 || gChoice > genres.size()) {
+                                    System.out.println("Invalid genre number.");
+                                    break;
+                                }
+
+                                String selectedGenre = genres.get(gChoice - 1);
+
+                                //  Step 2: Get songs
+                                result = songService.getSongsByGenre(selectedGenre);
                                 break;
 
-                            case 2:
-                                System.out.print("Enter Artist Name: ");
-                                String artist = RevPlayApp.sc.nextLine();
 
-                                if (artist == null || artist.trim().isEmpty()) {
+                            case 2:
+                                System.out.print("Enter Artist Name Keyword: ");
+                                String text = RevPlayApp.sc.nextLine().trim();
+
+                                if (text.isEmpty()) {
                                     System.out.println("Artist name cannot be empty.");
                                     break;
                                 }
 
-                                result = songService.getSongsByArtistName(artist.trim());
-                                break;
+                                List<Artist> artists = artistService.searchArtistsByName(text);
+
+                                if (artists == null || artists.isEmpty()) {
+                                    System.out.println("No artists found.");
+                                    break;
+                                }
+
+                                System.out.println("\n--- Matching Artists ---");
+                                int i = 1;
+                                for (Artist a : artists) {
+                                    System.out.println(i + ". Artist ID: " + a.getArtistId() + " | Genre: " + a.getGenre());
+                                    i++;
+                                }
+
+                                System.out.print("Select Artist Number: ");
+                                int choice;
+                                try {
+                                    choice = Integer.parseInt(RevPlayApp.sc.nextLine());
+                                } catch (Exception e) {
+                                    System.out.println("Invalid selection.");
+                                    break;
+                                }
+
+                                if (choice < 1 || choice > artists.size()) {
+                                    System.out.println("Invalid choice.");
+                                    break;
+                                }
+
+                                int selectedArtistId = artists.get(choice - 1).getArtistId();
+
+                                result = songService.viewSongsByAlbum(selectedArtistId);  // ❌ WAIT — WRONG
+
+
 
                             case 3:
                                 System.out.print("Enter Album Name: ");
-                                String album = RevPlayApp.sc.nextLine();
+                                String album = RevPlayApp.sc.nextLine().trim();
 
-                                if (album == null || album.trim().isEmpty()) {
+                                if (album.isEmpty()) {
                                     System.out.println("Album name cannot be empty.");
                                     break;
                                 }
 
-                                result = songService.getSongsByAlbumName(album.trim());
+                                //  Step 1: Get matching albums
+                                List<com.revplay.model.Album> albums = albumService.searchAlbumsByName(album);
+
+                                if (albums == null || albums.isEmpty()) {
+                                    System.out.println("No albums found.");
+                                    break;
+                                }
+
+                                System.out.println("\n--- Matching Albums ---");
+                                for (com.revplay.model.Album a : albums) {
+                                    System.out.println(a.getAlbumId() + " - " + a.getAlbumName());
+                                }
+
+                                System.out.print("Enter Album ID to view songs: ");
+                                int aid;
+                                try {
+                                    aid = Integer.parseInt(RevPlayApp.sc.nextLine());
+                                } catch (Exception e) {
+                                    System.out.println("Invalid ID.");
+                                    break;
+                                }
+
+                                //  Step 2: Get songs of selected album
+                                result = songService.getSongsByAlbumId(aid);
                                 break;
+
 
                             case 4:
                                 System.out.print("Enter Song Name: ");
@@ -817,7 +911,7 @@ public class UserMenuUI {
                                 break;
                         }
 
-                        // ðŸ”´ No results found
+                        // No results found
                         if (result == null || result.isEmpty()) {
                             System.out.println("No songs found.");
                             break;
@@ -866,7 +960,7 @@ public class UserMenuUI {
 
                         if (pid1 == 0) break;
 
-                        // ðŸ”´ Validate ID
+                        // Validate ID
                         boolean exists = false;
                         for (Playlist pl : publicPlaylists) {
                             if (pl.getPlaylistId() == pid1) {
